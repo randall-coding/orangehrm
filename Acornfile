@@ -22,6 +22,7 @@ containers: {
         env: {
             MYSQL_USER: "user"
             MYSQL_RANDOM_ROOT_PASSWORD: "true"
+            MYSQL_DATABASE: "orangehrm"
             MYSQL_PASSWORD: "secret://env/mysql_password"
         }
     }
