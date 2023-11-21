@@ -1,0 +1,53 @@
+containers: {
+    website: {
+        image: "ghcr.io/randall-coding/orangehrm"
+        ports: publish: [
+            "80/http"
+        ]
+        dirs: {
+            "/config": "volume://config"
+        }
+        dependsOn: ["mariadb"]
+        // consumes: ["mariadb"]
+    }
+
+    mariadb: {
+        image: "mariadb:10.0"
+        ports: {
+            expose: ["3306:3306/tcp"]
+        }
+        dirs: {
+            "/var/lib/mysql": "volume://db"
+        }
+        env: {
+            MYSQL_USER: "user"
+            MYSQL_DATABASE: "orangehrm"
+            MYSQL_RANDOM_ROOT_PASSWORD: "true"
+            MYSQL_PASSWORD: "secret://env/mysql_password"
+        }
+    }
+}
+
+// services: mariadb: {
+//     image: "ghcr.io/acorn-io/mariadb:v10.#.#-#" // pulls the latest 10.x version
+//     environment: {
+//         MYSQL_USER: "opensupports"
+//         MYSQL_DATABASE: "opensupports"
+//         MYSQL_RANDOM_ROOT_PASSWORD: "true"
+//         MYSQL_PASSWORD: "secret://env/mysql_password"
+//     }
+// }
+
+secrets: env: {
+    external: "orangehrm"
+}
+
+volumes: config: {
+    size: "1G"
+    accessModes: "readWriteOnce"
+}
+
+volumes: db: {
+    size: "1G"
+    accessModes: "readWriteOnce"
+}
