@@ -70,7 +70,7 @@ Visiting the endpoint should show a screen like this:
 ## Setup your Orange HRM server
 
 ### Database Configuration
-Select the "New Database" radio button.
+Select the "Existing Empty Database" radio button.
 
 Fill in the following fields:
 - Database Host Name: `mariadb`
