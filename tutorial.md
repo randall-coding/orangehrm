@@ -87,7 +87,7 @@ Fill in organization information, country and timezone.
 ### Create admin account
 Fill in the basic admin user information and make sure you remember these credentials so you can login.
 
-You will be given a change to review the information, after which time you can click "Install".
+You will be given a chance to review the information, after which time you can click "Install".
 
 ### Log in
 On the final setup page click "Launch OrangeHRM" and redirect to the login page.
